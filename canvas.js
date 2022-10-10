@@ -28,3 +28,18 @@ function desenharLinhas(){
     tabuleiro.stroke()
     tabuleiro.closePath()
 }
+
+function escreverLetraCorreta(index){
+    tabuleiro.font = "bold 52px Inter"
+    tabuleiro.lineCap = "round"
+    tabuleiro.fillStyle = "#0A3871"
+    let largura = 600/palavraSecreta.length
+    tabuleiro.fillText(palavraSecreta[index],508 + (largura * index),630)
+}
+
+function escreverLetraIncorreta(letra){
+    tabuleiro.font = "bold 36px Inter"
+    tabuleiro.lineCap = "round"
+    tabuleiro.fillStyle = "#0A3871"
+    tabuleiro.fillText(letra, 820 -(40 * erros), 720, 40)
+}
