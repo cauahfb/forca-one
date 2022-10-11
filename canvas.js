@@ -124,5 +124,22 @@ function desenhaSangue(){
     tabuleiro.closePath()
 }
 
+function ganhouJogo(){
+    tabuleiro.font = "bold 52px Inter"
+    tabuleiro.lineCap = "round"
+    tabuleiro.fillStyle = "#32cd32"
+    tabuleiro.fillText("Você venceu !!", 200, 210)
+}
 
+function perdeuJogo(){
+    tabuleiro.font = "bold 52px Inter"
+    tabuleiro.lineCap = "round"
+    tabuleiro.fillStyle = "#FF0000"
+    tabuleiro.fillText("Você Perdeu :C", 200, 180)
+    tabuleiro.font = "bold 40px Inter"
+    tabuleiro.fillStyle = "#000000"
+    tabuleiro.fillText("A palavra era: ", 100, 230)
+    tabuleiro.fillStyle = "#FF0000"
+    tabuleiro.fillText(palavraSecreta, 370, 230)
 
+}

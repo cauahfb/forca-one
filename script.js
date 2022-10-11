@@ -4,6 +4,7 @@ let palavraSecreta = "";
 let letras = [];
 let erros = 7;
 let quantidadeLetrasRestantes;
+let fimDeJogo = false;
 
 function escolherPalavraSecreta() {
     let palavra = palavras[Math.floor(Math.random() * palavras.length)]
@@ -46,15 +47,18 @@ function iniciarJogo() {
 
         let letra = e.key.toUpperCase();
 
-        if (verificarTecla(letra) && letraNaoRapetida(letra)) {
-            if (erros == 1) {derrota()}
+        if (verificarTecla(letra) && letraNaoRapetida(letra) && !fimDeJogo) {
+            if (erros == 1) { derrota() }
             if (palavraSecreta.includes(letra)) {
                 for (let i = 0; i < palavraSecreta.length; i++) {
                     if (palavraSecreta[i] === letra) {
                         quantidadeLetrasRestantes--;
                         escreverLetraCorreta(i)
                     }
-                } if (quantidadeLetrasRestantes == 0) { setTimeout(function () { (alert("Ganhou")); }, 100); }
+                } if (quantidadeLetrasRestantes == 0) { 
+                    setTimeout(function () { (ganhouJogo()); }, 100); 
+                    fimDeJogo = true;
+                }
             }
             else {
                 adicionarLetraIncorreta(letra);
@@ -93,6 +97,10 @@ function novoJogo() {
     document.location.reload()
 }
 
-function derrota(){
-    setTimeout(function () { (alert("Perdeu")); }, 100);
+function derrota() {
+    if(fimDeJogo){
+        return
+    }
+    setTimeout(function () { (perdeuJogo()); }, 100);
+    fimDeJogo = true;
 }
