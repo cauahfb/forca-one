@@ -1,14 +1,15 @@
 let palavras = ["ALURA", "ORACLE", "FORCA", "HTML", "JAVASCRIPT", "LOGICA"];
-let tabuleiro = document.getElementById("forca").getContext("2d");
 let palavraSecreta = "";
 
 let letras = [];
-let erros = 8;
+let erros = 7;
+let quantidadeLetrasRestantes;
 
 function escolherPalavraSecreta() {
     let palavra = palavras[Math.floor(Math.random() * palavras.length)]
     palavraSecreta = palavra;
-    console.log(palavraSecreta)
+    console.log(palavraSecreta);
+    quantidadeLetrasRestantes = palavraSecreta.length;
     return palavra
 }
 
@@ -24,6 +25,7 @@ function verificarTecla(tecla) {
 
 function adicionarLetraIncorreta() {
     erros -= 1
+    console.log(erros);
 }
 
 function letraNaoRapetida(letra) {
@@ -32,7 +34,9 @@ function letraNaoRapetida(letra) {
 
 
 function iniciarJogo() {
+    document.getElementById("div-aparece-forca").style.display = ""
     document.getElementById("div-desaparece").style.display = "none"
+    document.getElementById("div-aparece").style.display = ""
     escolherPalavraSecreta();
 
     desenharCanvas();
@@ -43,22 +47,52 @@ function iniciarJogo() {
         let letra = e.key.toUpperCase();
 
         if (verificarTecla(letra) && letraNaoRapetida(letra)) {
+            if (erros == 1) {derrota()}
             if (palavraSecreta.includes(letra)) {
                 for (let i = 0; i < palavraSecreta.length; i++) {
                     if (palavraSecreta[i] === letra) {
-                        escreverLetraCorreta(i);
+                        quantidadeLetrasRestantes--;
+                        escreverLetraCorreta(i)
                     }
-                }
-
+                } if (quantidadeLetrasRestantes == 0) { setTimeout(function () { (alert("Ganhou")); }, 100); }
             }
             else {
                 adicionarLetraIncorreta(letra);
                 escreverLetraIncorreta(letra, erros);
+                switch (erros) {
+                    case 6:
+                        desenhaCabeca();
+                        break;
+                    case 5:
+                        desenhaCorpo();
+                        break;
+                    case 4:
+                        desenhaBracoDireito();
+                        break;
+                    case 3:
+                        desenhaBracoEsquerdo();
+                        break;
+                    case 2:
+                        desenhaPernaDireita();
+                        break;
+                    case 1:
+                        desenhaPernaEsquerda();
+                        break;
+                    case 0:
+                        desenhaSangue();
+                        break;
+                }
             }
             letras.push(letra);
-
-        } else {
-            console.log("nao entrou");
         }
     }
+}
+
+
+function novoJogo() {
+    document.location.reload()
+}
+
+function derrota(){
+    setTimeout(function () { (alert("Perdeu")); }, 100);
 }

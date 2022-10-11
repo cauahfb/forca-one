@@ -19,16 +19,22 @@
                 <input class="btn-iniciar" type="submit" value="Começar a Jogar" id="iniciar-jogo" onclick="iniciarJogo()">
             </a>
         </div>
-        
-        <div id="div-aparece-forca" class="canvas">
-            <canvas id="forca" height="860px" width="1200px"></canvas>
+
+        <div id="div-aparece-forca" class="canvas" style="display: none;">
+            <canvas id="forca" height="660px" width="1200px"></canvas>
         </div>
+
+        <section id="div-aparece" class="botoes-jogo" style="display: none;">
+                <input class="btnNovoJogo" type="submit" value="Novo Jogo" id="novoJogo" onclick="novoJogo()">
+
+                <input class="btn-desistir" type="submit" value="Desistir" id="desistirJogo" onclick="derrota()">
+        </section>
         
     </main>
     <footer>
         <p>Desenvolvido por Cauã Henrique - 2022</p>
         <div class="links">
-            <a href=mailto:"cauaferreirabarbosa@hotmail.com" target="_blank"><img src="./imagens/email.png"></a>
+            <a href="mailto:cauaferreirabarbosa@hotmail.com" target="_blank"><img src="./imagens/email.png"></a>
             <a href="https://github.com/cauahfb" target="_blank"><img src="./imagens/github.png"></a>
             <a href="https://www.linkedin.com/in/cauahenrique/" target="_blank"><img src="./imagens/linkedin.png"></a>
         </div>
