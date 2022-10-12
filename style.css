@@ -53,7 +53,8 @@ header {
     text-align: center;
 }
 
-.btnNovoJogo,.btn-salvar,
+.btnNovoJogo,
+.btn-salvar,
 .btn-começarjogo {
     background: #0A3871;
     border-radius: 24px;
@@ -68,7 +69,8 @@ header {
     color: #F3F5FC;
 }
 
-.btn-desistir,.btn-cancelar {
+.btn-desistir,
+.btn-cancelar {
     background: #F3F5FC;
     border-radius: 24px;
     padding: 24px;
@@ -93,10 +95,11 @@ header {
     display: grid;
 }
 
-.linha-aviso{
+.linha-aviso {
     margin-top: 50px;
 }
-.botoes-palavranova{
+
+.botoes-palavranova {
     text-align: center;
 }
 
@@ -128,4 +131,27 @@ footer p {
 .links a {
     display: inline;
     margin: 0 12px;
+}
+
+@media screen and (max-width: 480px) {
+
+    #div-aparece-forca {
+        margin-left: -12%;
+    }
+
+    #forca {
+        width: 450px;
+    }
+
+    .btnNovoJogo{
+        margin: 0 0 10px 0;
+    }
+
+    .botoes-jogo{
+        scale: 0.8;
+    }
+
+    .btn-salvar{
+        margin: 10px 0 10px 0;
+    }
 }

@@ -10,7 +10,7 @@ let fimDeJogo = false;
 function escolherPalavraSecreta() {
     let palavra = palavras[Math.floor(Math.random() * palavras.length)]
     palavraSecreta = palavra.toUpperCase();
-    console.log(palavraSecreta);
+    console.log("PARA DE TENTAR FUCHICAR");
     quantidadeLetrasRestantes = palavraSecreta.length;
     return palavra
 }
@@ -27,7 +27,6 @@ function verificarTecla(tecla) {
 
 function adicionarLetraIncorreta() {
     erros -= 1
-    console.log(erros);
 }
 
 function letraNaoRapetida(letra) {
@@ -36,17 +35,19 @@ function letraNaoRapetida(letra) {
 
 
 function iniciarJogo() {
+    fimDeJogo = false;
+    letras = [];
+    erros = 7;
     document.getElementById("div-aparece-forca").style.display = ""
     document.getElementById("div-desaparece").style.display = "none"
     document.getElementById("div-aparece").style.display = ""
-    console.log(palavras)
+    document.getElementById("div-novaPalavra").style.display = "none"
     escolherPalavraSecreta();
 
     desenharCanvas();
     desenharLinhas();
 
     document.onkeydown = (e) => {
-
         let letra = e.key.toUpperCase();
 
         if (verificarTecla(letra) && letraNaoRapetida(letra) && !fimDeJogo) {
