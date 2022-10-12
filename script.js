@@ -1,5 +1,6 @@
-let palavras = ["ALURA", "ORACLE", "FORCA", "HTML", "JAVASCRIPT", "LOGICA"];
+let palavras = ["GATO","CACHORRO","UVA","MORANGO"];
 let palavraSecreta = "";
+const inputTexto = document.querySelector(".input-text");
 
 let letras = [];
 let erros = 7;
@@ -8,7 +9,7 @@ let fimDeJogo = false;
 
 function escolherPalavraSecreta() {
     let palavra = palavras[Math.floor(Math.random() * palavras.length)]
-    palavraSecreta = palavra;
+    palavraSecreta = palavra.toUpperCase();
     console.log(palavraSecreta);
     quantidadeLetrasRestantes = palavraSecreta.length;
     return palavra
@@ -38,6 +39,7 @@ function iniciarJogo() {
     document.getElementById("div-aparece-forca").style.display = ""
     document.getElementById("div-desaparece").style.display = "none"
     document.getElementById("div-aparece").style.display = ""
+    console.log(palavras)
     escolherPalavraSecreta();
 
     desenharCanvas();
@@ -55,8 +57,8 @@ function iniciarJogo() {
                         quantidadeLetrasRestantes--;
                         escreverLetraCorreta(i)
                     }
-                } if (quantidadeLetrasRestantes == 0) { 
-                    setTimeout(function () { (ganhouJogo()); }, 100); 
+                } if (quantidadeLetrasRestantes == 0) {
+                    setTimeout(function () { (ganhouJogo()); }, 100);
                     fimDeJogo = true;
                 }
             }
@@ -98,9 +100,25 @@ function novoJogo() {
 }
 
 function derrota() {
-    if(fimDeJogo){
+    if (fimDeJogo) {
         return
     }
     setTimeout(function () { (perdeuJogo()); }, 100);
     fimDeJogo = true;
+}
+
+function adicionaPalavra() {
+    document.getElementById("div-desaparece").style.display = "none"
+    document.getElementById("div-novaPalavra").style.display = ""
+}
+
+function salvarPalavra() {
+    if (inputTexto.value != "") {
+        if (palavras.includes(inputTexto.value)) {
+            alert("Essa palavra é repetida")
+        } else {
+            palavras.push(inputTexto.value)
+            inputTexto.value = '';
+        }
+    } else { alert("Digite uma palavra !!") }
 }

@@ -7,13 +7,22 @@ header {
     padding: 20px 5%;
 }
 
-#div-desaparece{
+#div-desaparece {
     text-align: center;
+    display: grid;
     margin-top: 5%;
 }
 
-#div-aparece-forca{
+#div-aparece-forca {
     margin-left: 10%;
+}
+
+.botao1 {
+    margin-bottom: 6%;
+}
+
+#btn:hover {
+    cursor: pointer;
 }
 
 .btn-iniciar {
@@ -28,11 +37,24 @@ header {
     gap: 8px;
 }
 
+.btn-novapalavra {
+    font-size: 16px;
+    font-weight: 400;
+    width: 317px;
+    height: 102px;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    padding: 24px;
+    gap: 8px;
+
+}
+
 .botoes-jogo {
     text-align: center;
 }
 
-.btnNovoJogo {
+.btnNovoJogo,.btn-salvar,
+.btn-começarjogo {
     background: #0A3871;
     border-radius: 24px;
     padding: 24px;
@@ -46,7 +68,7 @@ header {
     color: #F3F5FC;
 }
 
-.btn-desistir {
+.btn-desistir,.btn-cancelar {
     background: #F3F5FC;
     border-radius: 24px;
     padding: 24px;
@@ -59,6 +81,33 @@ header {
     text-align: center;
     color: #0A3871;
     border-color: #0A3871;
+}
+
+/* Div Nova Palavra */
+#div-novaPalavra {
+    margin-top: 5%;
+}
+
+.caixa-texto {
+    margin: 6% 10%;
+    display: grid;
+}
+
+.linha-aviso{
+    margin-top: 50px;
+}
+.botoes-palavranova{
+    text-align: center;
+}
+
+.input-text {
+    padding: 12px;
+    color: #0A3871;
+    border: none;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 19px;
+    resize: none;
 }
 
 footer {

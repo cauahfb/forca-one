@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,14 +10,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <title>Jogo da Forca</title>
 </head>
+
 <body>
     <header>
         <img src="./imagens/logo.png" alt="Logo do Alura">
     </header>
     <main>
         <div id="div-desaparece" class="botoes-home">
-            <a href="#forca">
-                <input class="btn-iniciar" type="submit" value="Começar a Jogar" id="iniciar-jogo" onclick="iniciarJogo()">
+            <a href="#forca" class="botao1">
+                <input class="btn-iniciar" type="submit" value="Começar a Jogar" id="btn" onclick="iniciarJogo()">
+            </a>
+            <a href="#novapalavra">
+                <input class="btn-novapalavra" type="submit" value="Adicionar Nova Palavra" id="btn"
+                    onclick="adicionaPalavra()">
             </a>
         </div>
 
@@ -25,11 +31,23 @@
         </div>
 
         <section id="div-aparece" class="botoes-jogo" style="display: none;">
-                <input class="btnNovoJogo" type="submit" value="Novo Jogo" id="novoJogo" onclick="novoJogo()">
+            <input class="btnNovoJogo" type="submit" value="Novo Jogo" id="btn" onclick="novoJogo()">
 
-                <input class="btn-desistir" type="submit" value="Desistir" id="desistirJogo" onclick="derrota()">
+            <input class="btn-desistir" type="submit" value="Desistir" id="btn" onclick="derrota()">
         </section>
-        
+
+        <section id="div-novaPalavra" style="display: none">
+            <div class="caixa-texto">
+                <textarea class="input-text" cols="40" rows="12" placeholder="Digite uma palavra"></textarea>
+                <p><img class="linha-aviso" src="./imagens/aviso.png" alt="logo de aviso">   Máx 8 letras e SEM ACENTO</p>
+            </div>
+            <div class="botoes-palavranova">
+                <input class="btn-cancelar" type="submit" value="Cancelar" id="btn" onclick="novoJogo()">
+                <input class="btn-salvar" type="submit" value="Salvar" id="btn" onclick="salvarPalavra()">
+                <input class="btn-começarjogo" type="submit" value="Começar Jogo" id="btn" onclick="iniciarJogo()">
+            </div>
+        </section>
+
     </main>
     <footer>
         <p>Desenvolvido por Cauã Henrique - 2022</p>
@@ -39,7 +57,8 @@
             <a href="https://www.linkedin.com/in/cauahenrique/" target="_blank"><img src="./imagens/linkedin.png"></a>
         </div>
     </footer>
-    <script type="text/javascript" src="script.js"></script>    
-    <script type="text/javascript" src="canvas.js"></script>  
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="canvas.js"></script>
 </body>
+
 </html>
